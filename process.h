@@ -5,6 +5,8 @@ private:
     int pid;
 public:
     explicit Process(int pid);
+    Process(const Process& proc);
+    Process(Process&& proc) noexcept;
 
     virtual ~Process();
 

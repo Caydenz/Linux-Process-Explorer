@@ -13,8 +13,8 @@ public:
     void populate();
     std::vector<Process>::iterator begin() noexcept;
     std::vector<Process>::iterator end() noexcept;
-    std::vector<Process>::const_iterator cbegin() noexcept;
-    std::vector<Process>::const_iterator cend() noexcept;
+    std::vector<Process>::const_iterator cbegin() const noexcept;
+    std::vector<Process>::const_iterator cend() const noexcept;
 
 
 };

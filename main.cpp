@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <string>
 #include <sys/ptrace.h>
 #include <sys/user.h>
 #include <sys/wait.h>
