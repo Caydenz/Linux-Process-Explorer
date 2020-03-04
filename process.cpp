@@ -16,6 +16,12 @@ Process::Process(const int pid): pid(pid)
 {
 }
 
+Process::Process(const int pid, const std::string& name, const std::string& cmdline)
+{
+    this->pid = pid;
+    this->name = name;
+    this->cmdline = cmdline;
+}
 Process::Process(const Process& proc)
 {
     this->pid = proc.pid;

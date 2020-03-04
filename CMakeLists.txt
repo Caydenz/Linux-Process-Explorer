@@ -8,4 +8,4 @@ include_directories(.)
 add_executable(Linux_Process_Explorer
         main.cpp
         process.cpp
-        process.h ProcessExplorer.cpp ProcessExplorer.h)
+        process.h ProcessExplorer.cpp ProcessExplorer.h utils.cpp utils.h)

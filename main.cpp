@@ -9,6 +9,7 @@
 #include <thread>
 #include <vector>
 #include "process.h"
+#include "ProcessExplorer.h"
 
 void
 try_ptrace(enum __ptrace_request request, pid_t pid, void* addr, void* data)
@@ -97,6 +98,14 @@ get_stack_bottom(pid_t pid)
 int
 main(int argc, char* argv[])
 {
+
+    std::unique_ptr<ProcessExplorer> explorer = std::make_unique<ProcessExplorer>();
+
+    explorer->populate();
+
+
+
+    return 0;
   std::vector<char> buffer(0x1000, 0x0);
 
   if (argc != 2) {

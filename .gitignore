@@ -32,7 +32,13 @@
 *.app
 
 .vscode
-.idea
+.idea/
 /cmake-build-debug/
 /out/
 .vs
+cmake_install.cmake
+CMakeCache.txt
+Makefile
+CMakeFiles
+Linux_Process_Explorer
+Linux_Process_Explorer.cbp
