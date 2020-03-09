@@ -28,3 +28,20 @@ std::string Utils::readFile(const std::string& path) {
         return std::string(contents);
     }
 }
+
+std::string Utils::getProcValue(std::string key, std::string file, std::istringstream &stream, int position) {
+
+    std::string result;
+    //reset stream
+    stream.clear();
+    stream.seekg(0);
+
+    stream.ignore(file.find(key) + key.length());
+
+    for(int i=0; i<position+1; i++)
+    {
+        stream >> result;
+    }
+
+    return result;
+}

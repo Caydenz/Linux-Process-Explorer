@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <regex>
+#include <sstream>
 #include "utils.h"
 
 
@@ -40,9 +41,9 @@ void ProcessExplorer::populate() {
 	    auto x = entry.path().filename().string();
         if (std::all_of(x.begin(), x.end(), ::isdigit))
         {
-            std::unique_ptr<Process> proc = std::make_unique<Process>(std::stoi(x));
+            std::unique_ptr<Process> proc = std::make_unique<Process>(x);
 
-            std::string statusFile = Utils::readFile("/proc/" + x + "/status");
+            //std::string statusFile = Utils::readFile("/proc/" + x + "/status");
 
             //std::cout << statusFile;
             /*std::ifstream file("/proc/" + x + "/status", std::ios::binary);
@@ -57,25 +58,28 @@ void ProcessExplorer::populate() {
             //}
 
 
-            auto y = statusFile.find("State:");
+            //auto y = statusFile.find("State:");
 
-            constexpr int ignored = 0;
+            //constexpr int ignored = 0;
 
-            std::istringstream test(statusFile);
+            //std::istringstream test(statusFile);
 
-            std::string process_name;
-            test.ignore(sizeof("Name:") - 1);
+            //std::string process_name;
 
-            test >> process_name;
+            //test.ignore(sizeof("Name:") - 1);
+
+            //test >> process_name;
             //test.clear();
             //test.seekg(0);
-            test.ignore(y + sizeof("State:") - 1 - sizeof("Name:") + 1);
-            std::string state_short;
-            std::string state_long;
-            test >> state_short >> state_long;
+            //test.ignore(y + sizeof("State:") - 1 - sizeof("Name:") + 1);
+            //std::string state_short;
+            //std::string state_long;
+            //test >> state_short >> state_long;
 
-
-            std::cout << x <<  " - " << process_name << " - " << state_short << " - " << state_long << '\n';
+           // std::cout << Utils::getProcValue("Name:", statusFile, test);
+            std::cout << proc->name << "-" << proc->state_short << "-" << proc->state_long << "\n";
+            //std::cout << Utils::getProcValue (std::string("Name:"), statusFile, test) << '\n';
+            //std::cout << x <<  " - " << process_name << " - " << state_short << " - " << state_long << '\n';
 
             //return std::string(block);
             //std::cout << x <<  ' ' << block << '\n';
